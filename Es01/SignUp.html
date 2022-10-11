@@ -12,6 +12,8 @@
             <div class="container">
                 <div class="columns is-mobile is-centered">
                     <form action="/test.php">
+                        
+                        <h1><b>Registrazione</b></h1><br><br>
 
                         <label for="fname">Nome</label>
                         <input class="input is-rounded" type="text" id="fname" name="fname" pattern="[a-zA-Z]+" placeholder="Nome"><br><br>
@@ -21,17 +23,20 @@
                         <input class="input is-rounded" type="text" id="lname" name="lname" name="fname" pattern="[a-zA-Z]+" placeholder="Cognome"><br><br>
 
                         <label for="email">Email</label>
-                        <input class="input is-rounded" type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="nome.cognome@buonarroti.tn.it"><br><br>
+                        <input class="input is-rounded" type="email" id="email" name="email" pattern="[a-z0-9].[a-z0-9]*+@buonarroti\.tn\.it" placeholder="nome.cognome@buonarroti.tn.it"><br><br>
 
 
                         <label for="telefono">Telefono</label>
                         <input class="input is-rounded" type="tel" id="telefono" name="telefono" pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$" placeholder="123456789"><br><br>
-
+                        
+                        <label for="telefono">Data di nascita</label>
+                        <input class="input is-rounded" type="date" id="dataNascita" name="dataNascita">
+                        
                         <label for="password">Password</label>
-                        <input class="input is-rounded" type="password" id="password" name="password" placeholder="*********"><br><br>
+                        <input class="input is-rounded" type="password" id="password" name="password" pattern="(?=.*\d)" placeholder="*********"><br><br>
 
                         <label for="cf">Codice Fiscale</label>
-                        <input class="input is-rounded" type="file" id="cf" name="cf"><br><br>
+                        <input class="input is-rounded" type="text" id="cf" name="cf"><br><br>
                         <input type="submit" value="Submit">
                     </form>
                 </div>

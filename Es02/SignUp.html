@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Registrazione</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
+
+    </head>
+    <body>
+        <section class="section">
+            <div class="container">
+                <div class="columns is-mobile is-centered">
+                    <form name="frmAccedi" action="result.html" method="get">
+                        <label>email</label>
+                        
+                        <input type="text" oninput="verificaEmail()" id="txtEmail" name="txtEmail" required="" maxlength="50" pattern="[a-z]{3,20}\.[a-z]{3,20}[0-9]*">
+                        <input type="text" id="txtDominio" name="txtDominio" required="" maxlength="20" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])-{8,20">
+                        
+                        <input type="submit">
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <script>
+            email = document.getElementById("txtEmail");
+            
+            function verificaEmail() {
+                if(email.value.lastIndexOf("@") !== -1) {
+                    email.setCustomValidity("Campo non corretto!");
+                }
+            }
+            
+            email.addEventListener("input", verificaEmail());
+        </script>
+    </body>
+</html>
