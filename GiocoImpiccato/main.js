@@ -18,7 +18,19 @@ const words = [
     "SEI",
     "STALATTITI",
     "SINISTRA",
-    "SILURO"
+    "SILURO",
+    "SCI",
+    "AMICHEVOLE",
+    "TORRE",
+    "ARTIGLIO",
+    "INSULTO",
+    "GRAVIDANZA",
+    "GIOCOLIERE",
+    "CHIODO",
+    "MARCIAPIEDE",
+    "DORMIRE",
+    "DIBATTITO",
+    "SPIRITO"
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
