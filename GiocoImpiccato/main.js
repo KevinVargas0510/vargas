@@ -1,5 +1,3 @@
-const {readFileSync, promises: fsPromises} = require('fs');
-
 var guessText;
 var buttons;
 var currentWord;
@@ -53,11 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function putLetter() {
-    const contents = readFileSync("./dictionary.txt", 'utf-8');
-
-  const arr = contents.split(/\r?\n/);
-
-  console.log(arr); // 👉️ ['One', 'Two', 'Three', 'Four']
     const button = event.srcElement;
     const image = document.getElementById("image");
     const endMessage = document.getElementById("endMessage");
