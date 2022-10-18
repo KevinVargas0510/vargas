@@ -15,14 +15,22 @@ and open the template in the editor.
     <body>
         <div class="container">
 
-            <div class="columns is-centered">
-                <div class="column is-mobile is-half has-text-centered">
+            <div class="columns">
+                
+                <div class="column is-mobile">
                     
-                    <img src="Sprites/Impiccato0.png" id="image" width="1250" height="1250" alt="">
-                    
-                    <h1 class="is-size-3" id="endMessage"></h1><br>
-                    <button class="button is-rounded is-success is-medium" id="restartButton" onclick="onRestart()" style="visibility: hidden">Ripeti</button>
-
+                </div>
+                
+                <div class="column is-full-mobile is-full-tablet is-half has-text-centered">
+                    <br><br>
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-3by2">
+                                <img src="Sprites/Impiccato0.png" id="image" alt="">
+                            </figure>
+                        </div>
+                    </div><br>
+                        
                     <h1 class="is-size-1" id="guessText"></h1><br><br>
 
                     <div class="columns is-mobile is-1-mobile is-multiline is-centered" id="container">
@@ -157,6 +165,13 @@ and open the template in the editor.
                             </button>
                         </div>
                     </div>
+                </div>
+                
+                <div class="column has-text-centered">
+                    <br><br>
+                    <h1 class="is-size-3" id="endMessage"></h1><br>
+                    <button class="button is-rounded is-success is-medium" id="restartButton" onclick="onRestart()" style="visibility: hidden">Ripeti</button>
+                    <br>
                 </div>
             </div>
 

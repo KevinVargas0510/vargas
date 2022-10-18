@@ -1,4 +1,7 @@
+const {readFileSync, promises: fsPromises} = require('fs');
+
 var guessText;
+var buttons;
 var currentWord;
 var errorCount = 0;
 var gameFinished = false;
@@ -33,37 +36,46 @@ const words = [
     "SPIRITO"
 ];
 
+String.prototype.replaceAt = function(index, replacement) {
+    return this.substring(0, index) + replacement + this.substring(index + replacement.length);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById("container");
-    const buttons = container.getElementsByTagName("button");
+    buttons = container.getElementsByTagName("button");
     guessText = document.getElementById("guessText");
 
     genNewWord();
 
     for (let i = 0; i < buttons.length; i++) {
-        buttons[i].setAttribute("id", buttons[i].innerText + "button");
         buttons[i].addEventListener("click", putLetter);
     }
 });
 
-function putLetter(evt) {
-    const button = document.getElementById(evt.target.id);
+function putLetter() {
+    const contents = readFileSync("./dictionary.txt", 'utf-8');
+
+  const arr = contents.split(/\r?\n/);
+
+  console.log(arr); // 👉️ ['One', 'Two', 'Three', 'Four']
+    const button = event.srcElement;
     const image = document.getElementById("image");
     const endMessage = document.getElementById("endMessage");
     const rsButton = document.getElementById("restartButton");
 
-    let newGuessText = guessText.innerText.replace(/ /g, '');
+    let temp = guessText.innerText.replace(/ /g, '');
     let isWrong = true;
 
     if (!gameFinished) {
         for (let i = 0; i < currentWord.length; i++) {
             if (button.innerText === currentWord[i]) {
-                newGuessText = replaceAt(newGuessText, i, button.innerText);
+                temp = temp.replaceAt(i, button.innerText);
                 isWrong = false;
             }
         }
 
-        guessText.innerHTML = newGuessText.split("").join(" ");
+        guessText.innerHTML = temp.split("").join(" ");
+        button.disabled = true;
 
         if (isWrong) {
             errorCount++;
@@ -91,6 +103,10 @@ function onRestart() {
     const image = document.getElementById("image");
     const endMessage = document.getElementById("endMessage");
     const rsButton = document.getElementById("restartButton");
+    
+    for(let i = 0; i < buttons.length; i++) {
+        buttons[i].disabled = false;
+    }
 
     genNewWord();
     image.src = "Sprites/Impiccato0.png";
@@ -121,6 +137,5 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
 
-function replaceAt(str, index, replacement) {
-    return str.substring(0, index) + replacement + str.substring(index + replacement.length);
-}
+
+
