@@ -36,7 +36,7 @@ const words = [
 
 String.prototype.replaceAt = function(index, replacement) {
     return this.substring(0, index) + replacement + this.substring(index + replacement.length);
-}
+},
 
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById("container");

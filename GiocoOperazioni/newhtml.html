@@ -10,34 +10,46 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Operazioni</title>
         <link rel="stylesheet" href="../bulma/css/bulma-rtl.min.css">
+        <script src="main.js"></script>
     </head>
     <body>
         <section class="hero is-small is-info margin-top">
             <div class="hero-body">
-                
+                <b class='is-size-4'>Gioco operazioni</b>
             </div>
         </section><br>
 
-        <div class="content">
+        <div class="container">
             <div class="columns">
                 <div class="column is-one-quarter"></div>
-                
-                <div class="column has-background-light has-text-centered is-size-1">
-                    1
+
+                <div class="column has-text-centered">
+                    <div class="box">
+
+                        <nav class="level">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <p class="is-size-4" id="points">0pt</p>
+                                </div>
+                            </div>
+
+                            <div class="level-right">
+                                <div class="level-item">
+                                    <p class="is-size-4" id="timer">60s</p>
+                                </div>
+                            </div>
+                        </nav>
+
+                        <h1 class="is-size-1" id="fullOperation">1 + 1 = __</h1><br><br>
+                        <input type="text" name="number" size="1" oninput="onGuessing()" style="text-align: center; font-size: 200%; outline: none; border: none; border-bottom: 1px solid #1890ff;">
+
+                    </div><br>
+                    <div id="endGame" hidden>
+                        <p class="is-size-2">Il tuo punteggio è <strong id="score">100pt</strong></p><br>
+                        <button class="button is-success is-large" onclick="restart()">Ritenta</button>
+                    </div>
                 </div>
-                <div class="column has-background-light has-text-centered is-size-1">
-                    +
-                </div>
-                <div class="column has-background-light has-text-centered is-size-1">
-                    
-                </div>
-                <div class="column has-background-light has-text-centered is-size-1">
-                    =
-                </div>
-                <div class="column has-background-light has-text-centered is-size-1">
-                    2
-                </div>
-                
+
                 <div class="column is-one-quarter"></div>
             </div>
         </div>
