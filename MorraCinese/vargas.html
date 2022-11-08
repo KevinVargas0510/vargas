@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Morra cinese</title>
+        <link rel="stylesheet" href="../bulma/css/bulma-rtl.min.css">
+        <script src="js/vargas.js"></script>
+    </head>
+    <body>
+        
+        <section class="hero is-small is-info margin-top">
+            <div class="hero-body">
+                <b class='is-size-4'>Morra cinese</b>
+            </div>
+        </section><br>
+        
+        <div class="container has-text-centered is-centered">
+            
+            <div class="columns">
+                
+                <div class="column"></div>
+                
+                <div class="column is-half">
+                     
+                    <div id="gameStart">
+                        
+                        <label class="is-size-3">Inserisci il nome</label>
+                        <input class="input is-rounded" type="text" id="txtName">
+                        
+                        <label class="is-size-3 mb-4">Inserisci i turni</label>
+                        <input class="input is-rounded" type="text" id="txtTurns">
+
+                        <button class="button is-rounded is-success" onclick="startGame()">Comincia il gioco</button>
+                    </div>
+                    
+                    <div id="handChoice" hidden>
+                        <div class="box">
+                            
+                            <div class="level">
+                                <div classs="level-left">
+                                    <div class="is-size-3" id="score">0pt</div>
+                                </div>
+                                
+                                <div classs="level-right">
+                                    <div class="is-size-3" id="turns">Turno: 5</div>
+                                </div>
+                            </div><br><br>
+                            
+                            <img src="img/carta_forbice_sasso.png" usemap="#image-map" id="mainImage">
+                            
+                            <div id="result" hidden>
+                                <img src="img/sasso_sx.png"  id="userImage">
+                                <img src="img/sasso_dx.png" id="botImage">
+                            </div>
+
+                            <map name="image-map">
+                                <area coords="238,325,63,171" shape="rect" id="carta" onclick="chooseHand()">
+                                <area coords="1,0,180,129" shape="rect" id="forbice" onclick="chooseHand()">
+                                <area coords="399,167,265,45" shape="rect" id="sasso" onclick="chooseHand()">
+                            </map><br><br><br><br>  
+                            
+                            <div class="is-size-2" id="user">fai la tua scelta!</div><br><br>
+                            
+                            <div id="restartBt" hidden>
+                                <button class="button is-rounded is-success is-large" id="restartBtElem" onclick="restartGame()">Ritenta</button>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="column">
+                
+            </div>
+        </div>
+        
+        
+    </body>
+</html>
