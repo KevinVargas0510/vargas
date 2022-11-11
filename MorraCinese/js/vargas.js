@@ -1,5 +1,6 @@
 var username;
-var score = 0;
+var playerScore = 0;
+var botScore = 0;
 var turns;
 
 const moves = [
@@ -71,8 +72,7 @@ function restartGame() {
     const restartElem = document.getElementById("restartBt");
 
     const turnsElem = document.getElementById("turns")
-
-    turns--;
+    
     turnsElem.innerHTML = "Turno: " + turns;
 
     startDiv.hidden = true;
@@ -113,48 +113,25 @@ function chooseHand() {
 
     turns--;
     turnsElem.innerHTML = "Turno: " + turns;
-    console.log(turns <= 0);
+    
     if (turns <= 0) {
         restartBtElem.innerHTML = "Risultato";
     }
 
     if (move === botMove) {
-        userElem.innerHTML = "Pareggio";
+        userElem.innerHTML = playerScore + " : " + botScore;
     } else {
         if ((move === "carta" && botMove === "sasso") ||
                 (move === "forbice" && botMove === "carta") ||
                 (move === "sasso" && botMove === "forbice")) {
-            userElem.innerHTML = "Hai vinto!";
-            score += 100;
-            scoreElem.innerHTML = score + "pt";
+            playerScore++;
         } else {
-            userElem.innerHTML = "Hai perso!";
-            score -= 100;
-            scoreElem.innerHTML = score + "pt";
+            botScore++;
         }
+        
+        userElem.innerHTML = playerScore + " : " + botScore;
+        scoreElem.innerHTML = playerScore + " : " + botScore;
     }
-}
-
-function setCookie(cname, cvalue, exdays) {
-  const d = new Date();
-  d.setTime(d.getTime() + (exdays*24*60*60*1000));
-  let expires = "expires="+ d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function getCookie(cname) {
-  let name = cname + "=";
-  let ca = document.cookie.split(';');
-  for(let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
 }
 
 function getRandomInt(min, max) {
